@@ -1,0 +1,6 @@
+CREATE TABLE books (
+	id SERIAL NOT NULL,
+	nombre VARCHAR(50),
+	autor VARCHAR(50),
+	PRIMARY KEY (id)
+);
