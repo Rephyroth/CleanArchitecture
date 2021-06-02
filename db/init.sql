@@ -1,12 +1,12 @@
 CREATE TABLE author(
-	id_author SERIAL NOT NULL,
+	id_author INT GENERATED ALWAYS AS IDENTITY,
 	name VARCHAR(50),
 	tel VARCHAR(15),
 	PRIMARY KEY (id_author)
 );
 
 CREATE TABLE publisher(
-	id_publisher SERIAL NOT NULL,
+	id_publisher INT GENERATED ALWAYS AS IDENTITY,
 	name VARCHAR(50),
 	tel VARCHAR(15),
 	address VARCHAR(100),
@@ -15,11 +15,11 @@ CREATE TABLE publisher(
 
 
 CREATE TABLE book(
-	id_book SERIAL NOT NULL,
+	id_book INT GENERATED ALWAYS AS IDENTITY,
 	title VARCHAR(100),
 	isbn VARCHAR(50),
-	author INTEGER(11),
-	editorial INTEGER(11),
+	author INT,
+	publisher INT,
 	genre VARCHAR(50),
 	num_pages VARCHAR(10),
 	year VARCHAR(10),
