@@ -7,5 +7,5 @@ CREATE TABLE book(
 	genre VARCHAR(50),
 	num_pages VARCHAR(10),
 	year VARCHAR(10),
-	PRIMARY KEY (id_book),
+	PRIMARY KEY (id_book)
 );

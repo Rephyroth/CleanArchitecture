@@ -14,4 +14,6 @@ class Book(Model):
     class Meta:
         database = db
         table_name = "book"
+        
+    
 
