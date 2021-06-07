@@ -30,6 +30,18 @@ services:
         depends_on:
         - db
 
+    scraper:
+        build: 
+            context: ./Container_C/
+        container_name: pyscraper
+        networks:
+            - custom  
+        depends_on: 
+            - db
+        env_file:
+            - ./Container_C/env.list
+        command: python3 ./scraper.py
+
 volumes:
     db-data:
     pgadmin-data:
