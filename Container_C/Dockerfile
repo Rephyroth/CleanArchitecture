@@ -1,11 +1,12 @@
 FROM python:3.8
 
-RUN mkdir code
+COPY . usr/src/Container_C
 
-WORKDIR /code
-
-COPY . .
+WORKDIR usr/src/Container_C
 
 RUN pip install peewee
 
+RUN pwd
+
+RUN ["python","./scraper.py"]
 
