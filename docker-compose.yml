@@ -30,6 +30,32 @@ services:
         depends_on:
         - db
 
+    scraper:
+        build: ./Container_C/
+        restart: on-failure:5
+        container_name: pyscraper
+        networks:
+            - custom  
+        depends_on: 
+            - pgadmin
+        env_file:
+            - ./Container_C/env.list
+        command: python3 ./scraper.py
+
+    flask:
+        build: 
+            context: ./Container_D/
+        container_name: pyflask
+        ports:
+            - "5000:5000"
+        networks:
+            - custom  
+        depends_on: 
+            - db
+        env_file:
+            - ./Container_D/env.list
+        command: python3 ./app.py
+
 volumes:
     db-data:
     pgadmin-data:
