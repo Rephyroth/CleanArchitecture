@@ -31,8 +31,8 @@ services:
         - db
 
     scraper:
-        build: 
-            context: ./Container_C/
+        build: ./Container_C/
+        restart: on-failure:5
         container_name: pyscraper
         networks:
             - custom  
