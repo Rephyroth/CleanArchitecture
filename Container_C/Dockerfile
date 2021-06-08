@@ -8,5 +8,5 @@ RUN pip install peewee
 
 RUN pwd
 
-RUN ["python","./scraper.py"]
+RUN ["python3","./scraper.py"]
 
