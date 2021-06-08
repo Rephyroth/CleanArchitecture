@@ -1,3 +1,4 @@
+
 import json 
 from models import Book
 
@@ -16,4 +17,3 @@ for row in data:
                 num_pages = row.get("num_pages"),
                 year = row.get("year"))
         
-    
