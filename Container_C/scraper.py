@@ -1,3 +1,4 @@
+
 import json 
 from models import Book
 
@@ -17,4 +18,3 @@ def insert_bd(data):
                     num_pages = row.get("num_pages"),
                     year = row.get("year"))
         
-    
