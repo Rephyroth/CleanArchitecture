@@ -17,3 +17,6 @@ class Book(Model):
         
     
 
+    def __str__(self):
+        return f"ID: {self.id_book} - Title: {self.title} - isbn: {self.isbn} -author {self.author} - publisher: {self.publisher} - genre: {self.genre} - num_pages: {self.num_pages} - year: {self.year}"
+
