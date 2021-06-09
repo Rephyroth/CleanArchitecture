@@ -1,12 +1,9 @@
-FROM python:3.8
+FROM python:3
 
-COPY . usr/src/Container_C
+COPY . /usr/src/Container_C
 
-WORKDIR usr/src/Container_C
+WORKDIR /usr/src/Container_C
 
-RUN pip install peewee
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pwd
-
-RUN ["python","./scraper.py"]
-
+CMD [ "python", "scraper.py" ]
