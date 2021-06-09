@@ -8,8 +8,27 @@ app = Flask(__name__)
 def index():
     return 'Index Page'
 
-@app.route('/my-books', methods=['GET', 'POST'])
+@app.route('/my-books', methods=['GET', 'POST', 'DELETE', "PUT"])
 def books():
+    if request.method == 'POST':
+        book = Book(
+            title=request.form['title'], isbn=request.form['isbn'], author=request.form['author'],
+            publisher=request.form['publisher'], genre=request.form['genre'], num_pages=request.form['num_pages'],
+            year=request.form['year'])
+        book.save()
+        return {'title': book.title, 'isbn': book.isbn, 'author': book.author, 'publisher': book.publisher,
+                'genre': book.genre, 'num_pages': book.num_pages, 'year': book.year}, 201
+
+    if request.method == 'DELETE':
+        result = Book.delete().where(Book.id_book == request.form['id_book']).execute() 
+        return {"removed": result}, 204
+    
+    if request.method == 'PUT':
+        result = Book.update(title=request.form['title'], isbn=request.form['isbn'], author=request.form['author'],
+            publisher=request.form['publisher'], genre=request.form['genre'], num_pages=request.form['num_pages'],
+            year=request.form['year']).where(Book.id_book == request.form['id_book']).execute() 
+        return {"updated": result}, 204
+
     return jsonify([{"id_book": book.id_book, "title": book.title, "isbn": book.isbn, "author": book.author, "publisher": book.publisher, "genre": book.genre, "num_pages": book.num_pages, "year": book.year} for book in Book.select()])
 
 @app.route('/my-books/<book_id>')
