@@ -42,23 +42,31 @@ services:
               target: /usr/src/Container_C
         depends_on: 
             - db
+        restart: on-failure:10
         env_file:
             - ./Container_C/env.list
 
-    #flask:
-        #build: 
-            #context: ./Container_D/
-        #container_name: pyflask
-        #ports:
-            #- "5000:5000"
-        #networks:
-            #- custom  
-        #depends_on: 
-            #- db
-        #env_file:
-            #- ./Container_D/env.list
-        #command: python3 ./app.py
-
+    flask:
+        build: ./Container_D
+        restart: on-failure:5
+        container_name: pyflask
+        expose:
+            - "5000"
+        ports:
+            - "5000:5000"
+        networks:
+            - custom
+        volumes:
+            - type: bind
+              source: ./Container_D
+              target: /usr/src/Container_D
+        depends_on:
+            - db
+        environment:
+            - FLASK_APP=app.py
+        env_file:
+            - ./Container_D/env.list
+            
 volumes:
     db-data:
     pgadmin-data:
