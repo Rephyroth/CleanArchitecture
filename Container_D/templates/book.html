@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>El libro {{ title }}!</title>
+        <style>
+            body {
+                background: black;
+                color: white;
+            }
+            div.container {
+                max-width: 500px;
+                margin: 100px auto;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Mi libro #{{ id_book }}: {{ author }} {{ year }}!!!</h1>
+        </div>
+    </body>
+</html>
