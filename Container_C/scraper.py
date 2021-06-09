@@ -17,5 +17,3 @@ for row in data:
 
     print(f"##### Insertando registro...\n\t-> Registro: {book}\n\t-> Status: {book.save()}")
 
-        
-    
