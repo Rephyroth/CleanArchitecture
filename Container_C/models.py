@@ -1,8 +1,8 @@
-from peewee import CharField, Model, PrimaryKeyField
+from peewee import CharField, Model, AutoField
 from db import db
 
 class Book(Model):
-    id_book = PrimaryKeyField()
+    id_book = AutoField()
     title = CharField()
     isbn = CharField()
     author = CharField()
