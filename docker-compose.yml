@@ -40,7 +40,7 @@ services:
               source: ./Container_C
               target: /usr/src/Container_C
         depends_on: 
-            - db
+            - pgadmin
         env_file:
             - ./Container_C/env.list
 
