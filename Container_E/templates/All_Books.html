@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>All Books</title>
+    <style>
+        th, td, tr {
+            border: solid 2px white ;
+            color: white;
+        }
+    </style>
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md text-center">
+                <h1>All Books</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="form-group col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <br>
+                            <table class="table table-striped table-bordewhite" border="0">
+                                <thead class="text-capitalize">
+                                    <tr>
+                                        <th><font color="white">ID Book</font></th>
+                                        <th><font color="white">Title</font></th>
+                                        <th><font color="white">ISBN</font></th>
+                                        <th><font color="white">Author</font></th>
+                                        <th><font color="white">Publisher</font></th>
+                                        <th><font color="white">Genere</font></th>
+                                        <th><font color="white">Pages</font></th>
+                                        <th><font color="white">Years</font></th>
+                                    </tr>
+                                </thead>
+                                <tbody id='data'>
+                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"> </script>
+
+<script> 
+
+        let url = 'http://localhost:5000/my-books'
+        fetch(url)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => console.log(error))
+			
+        const mostrarData = (data) => {
+            console.log(data)
+            let body = ''
+            for (let i = 0; i<data.length; i++){
+                body += `<tr><td>${data[i].id_book}</td><td>${data[i].title}</td><td>${data[i].isbn}</td><td>${data[i].author}</td><td>${data[i].publisher}</td><td>${data[i].genre}</td><td>${data[i].num_pages}</td><td>${data[i].year}</td></tr>`                
+            }
+            document.getElementById('data').innerHTML = body
+        }  
+
+</script>
