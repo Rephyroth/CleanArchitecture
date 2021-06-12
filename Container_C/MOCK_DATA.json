@@ -1,4 +1,4 @@
-[{"id_book":1,"title":"Dylan Dog: Dead of Night","isbn ":"502898582-0","author ":"Margaret Zettler","publisher":"Skyvu","genre":"Comedy|Horror|Mystery|Thriller","num_pages":46,"year":2013},
+[   {"id_book":1,"title":"Dylan Dog: Dead of Night","isbn ":"502898582-0","author ":"Margaret Zettler","publisher":"Skyvu","genre":"Comedy|Horror|Mystery|Thriller","num_pages":46,"year":2013},
     {"id_book":2,"title":"Winning Streak","isbn ":"406558854-5","author ":"Harwell Atton","publisher":"Shuffledrive","genre":"Drama","num_pages":804,"year":1994},
     {"id_book":3,"title":"August Evening","isbn ":"076323795-7","author ":"Arlinda Gittens","publisher":"Digitube","genre":"Drama","num_pages":117,"year":2009},
     {"id_book":4,"title":"Archangel","isbn ":"201615650-3","author ":"Mac Bodill","publisher":"Wikivu","genre":"Comedy","num_pages":420,"year":1981},
