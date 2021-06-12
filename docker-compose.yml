@@ -45,7 +45,7 @@ services:
         restart: on-failure:10
         env_file:
             - ./Container_C/env.list
-
+            
     flask:
         build: ./Container_D
         restart: on-failure:5
@@ -64,9 +64,22 @@ services:
             - db
         environment:
             - FLASK_APP=app.py
+            - ENABLE_CORS=true
         env_file:
             - ./Container_D/env.list
-            
+
+    frontend:
+        build: ./Container_E
+        container_name: frontend
+        expose:
+            - "5001"
+        ports:
+            - "5001:5001"
+        networks:
+            - custom
+        environment:
+            - FLASK_APP=app.py
+           
 volumes:
     db-data:
     pgadmin-data:
