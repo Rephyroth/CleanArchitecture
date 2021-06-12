@@ -31,31 +31,55 @@ services:
         - db
 
     scraper:
-        build: ./Container_C/
-        restart: on-failure:5
+        build: ./Container_C
         container_name: pyscraper
+        restart: on-failure:5
         networks:
             - custom  
+        volumes:
+            - type: bind
+              source: ./Container_C
+              target: /usr/src/Container_C
         depends_on: 
-            - pgadmin
+            - db
+        restart: on-failure:10
         env_file:
             - ./Container_C/env.list
-        command: python3 ./scraper.py
-
+            
     flask:
-        build: 
-            context: ./Container_D/
+        build: ./Container_D
+        restart: on-failure:5
         container_name: pyflask
+        expose:
+            - "5000"
         ports:
             - "5000:5000"
         networks:
-            - custom  
-        depends_on: 
+            - custom
+        volumes:
+            - type: bind
+              source: ./Container_D
+              target: /usr/src/Container_D
+        depends_on:
             - db
+        environment:
+            - FLASK_APP=app.py
+            - ENABLE_CORS=true
         env_file:
             - ./Container_D/env.list
-        command: python3 ./app.py
 
+    frontend:
+        build: ./Container_E
+        container_name: frontend
+        expose:
+            - "5001"
+        ports:
+            - "5001:5001"
+        networks:
+            - custom
+        environment:
+            - FLASK_APP=app.py
+           
 volumes:
     db-data:
     pgadmin-data:

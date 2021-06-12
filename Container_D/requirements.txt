@@ -1,4 +1,4 @@
 peewee==3.14
-Faker==4.17.0
 psycopg2==2.8.6
 Flask == 1.1.2 
+flask-cors

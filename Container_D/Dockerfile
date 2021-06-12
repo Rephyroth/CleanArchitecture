@@ -1,9 +1,10 @@
-FROM python:3.7
+FROM python:3
 
-RUN mkdir app_code
+COPY . /usr/src/Container_D
 
-WORKDIR /app_code
+WORKDIR /usr/src/Container_D
 
-COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip3 install -r requirements.txt
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+

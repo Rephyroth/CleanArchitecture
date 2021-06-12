@@ -1,8 +1,8 @@
-from peewee import CharField, Model, PrimaryKeyField
+from peewee import CharField, Model, AutoField
 from db import db
 
 class Book(Model):
-    id_book = PrimaryKeyField()
+    id_book = AutoField()
     title = CharField()
     isbn = CharField()
     author = CharField()
@@ -16,4 +16,7 @@ class Book(Model):
         table_name = "book"
         
     
+
+    def __str__(self):
+        return f"ID: {self.id_book} - Title: {self.title} - isbn: {self.isbn} -author {self.author} - publisher: {self.publisher} - genre: {self.genre} - num_pages: {self.num_pages} - year: {self.year}"
 
