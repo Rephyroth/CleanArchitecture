@@ -1,7 +1,7 @@
 from flask import Flask,request, render_template, jsonify, abort
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder="templates")
 
 @app.route('/All_Books')
 def index_All_Books():
