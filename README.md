@@ -53,3 +53,6 @@ Crear un archivo `docker-compose.yml` por medio del cual se instancien **4** con
 * Despues se crearan datos falsos (contenedor-C) en un archivo Json y con un script de python que agregara los datos del scrip de Json a la base de datos.
 * Tambien se crea una API (contenedor-D) que esta muestra desde 1 solo libro hasta todos los libros de la base de datos, tambien permite crear, actualizar y borrar un libro de a base de datos
 * Despues el usuario ira a la ruta `localhost:5001` para asi interactuar con el comntenedor-E y poder ver en la `pagina` los libros ya sea que sean buscados por `ID` o bien que se muestren todos los libros alojados en la base de datos
+
+## Video Explicativo
+https://1drv.ms/u/s!AjKBvzIMa2k_gm6ABDlA4-g44jfq?e=DPlsm9
